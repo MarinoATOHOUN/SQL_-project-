@@ -1,1 +1,70 @@
+CREATE DATABASE benin_dns_forum_database ;
+
+USE benin_dns_forum_database ;
+
+CREATE TABLE inscription ( 
+  Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Nom VARCHAR(255) NOT NULL UNIQUE,
+  Email VARCHAR(255) NOT NULL UNIQUE,
+  Id_activites INTEGER(255) NOT NULL
+) ;
+
+CREATE TABLE participants (
+  Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Nom_participant VARCHAR(255) NOT NULL,
+  Email VARCHAR(255) NOT NULL UNIQUE,
+  Entreprise_du_participant VARCHAR(255),
+  Addresse VARCHAR(255),
+  Poste VARCHAR(255),
+  Contacts INT(255)
+) ;
+
+CREATE TABLE editions (
+  Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  N_edition VARCHAR(255) NOT NULL UNIQUE,
+  Sujets_activites TEXT(255),
+  Date_edition DATE(255),
+  Rapport_texte TEXT(255) NOT NULL,
+  Date_redaction_rapport DATE(255) NOT NULL
+) ;
+
+CREATE TABLE journal_activitees (
+  Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Nom_activite VARCHAR(255) NOT NULL,
+  Type_activite VARCHAR(255) NOT NULL,
+  Descriptions VARCHAR(255) NOT NULL,
+  Date_activite DATE(255) NOT NULL
+)
+
+CREATE TABLE activites (
+  Id_activites INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  Nom_activites VARCHAR(255) NOT NULL,
+  Categorie_activites VARCHAR(255),
+  Date_debut DATE(255),
+  Date_fin DATE(255)
+)
+
+
+INSERT INTO 'inscription' (Nom, Email, Activite) 
+VALUES 
+    ('john Mic', 'john@gmail.com', '2') ,
+    ('Brice Tonon', 'jane@gmail.com', '4') ,
+    ('Juste Sèvi', 'justesevi@gmail.com', '5') ,
+    ('Jill Bokou', 'jillbokou@gmail.com', '2') ,
+    ('Aliou Taof', 'alioutaof@gmail.com', '3') ,
+    ('jane Peter', 'jane@gmail.com', '5') ;
+
+INSERT INTO 'participants' (Nom_participant, Email, Entreprise_du_participant, Addresse, Poste, Contacts) 
+VALUES 
+    ('Joe Smith', 'joe@gmail.com', '...', 'Calavi, Bénin', 'Directeur', '32154895'),
+    ('Noé DELE', 'dnoe1@gmail.com', '...', 'Bohicon, Bénin', 'Cofondateur', '32154895');
+
+INSERT INTO 'activites' (Nom_activites, Date_debut, Date_fin) 
+VALUES 
+    ('Woman DNS Academy', '2021-11-29', '2021-11-29') ,
+    ('DNSAthon', '2021-11-29', '2021-11-29') ,
+    ('Seminaire', '2021-11-30', '2021-11-30') ,
+    ('Internet City', '2021-12-01', '2021-12-01') ,
+    ('WDA Networking', '2021-12-02', '2021-12-02') , 
+    ('Forum Public', '2021-12-03', '2021-12-03') ;
 
